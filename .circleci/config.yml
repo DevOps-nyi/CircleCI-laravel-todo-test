@@ -16,9 +16,8 @@ jobs:
                 ssh  $USERNAME@$HOST -o StrictHostKeyChecking=no
         - run:
             name: DEPLOY
-            command: |
-            cd /home/ubuntu/devops/
-             ./deploy.sh
+            command: cd /home/ubuntu/devops/ && ./deploy.sh
+
                  
 workflows:
   build_laravel:
