@@ -17,8 +17,8 @@ jobs:
         - run:
             name: DEPLOY
             command: |
-                cd /home/ubuntu/devops/
-                ./deploy.sh
+            cd /home/ubuntu/devops/
+             ./deploy.sh
                  
 workflows:
   build_laravel:
