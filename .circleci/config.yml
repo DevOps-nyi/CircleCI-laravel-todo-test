@@ -11,7 +11,7 @@ jobs:
             command: apt-get update && apt-get install -y openssh-client
         - run:
             name: SSH TO THE SERVER AND DEPLOY
-            command: 
+            command: |
                 echo "Deploy"
                 ssh  $USERNAME@$HOST -o StrictHostKeyChecking=no "/home/ubuntu/devops/deploy.sh"
 
