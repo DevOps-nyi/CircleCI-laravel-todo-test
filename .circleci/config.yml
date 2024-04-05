@@ -1,0 +1,29 @@
+version: 2.1
+
+jobs:
+  build-prod:
+    docker:
+        - image: ubuntu:latest  
+    steps:
+        - checkout
+        - run:
+            name: run ssh on server
+            command: apt-get update && apt-get install -y openssh-client
+        - run:
+            name: Deploy the server
+            command: 
+                echo "Access the server"
+                ssh  $USERNAME@$HOST -o StrictHostKeyChecking=no
+                cd /home/ubuntu/devops 
+                ./deploy.sh
+
+                 
+workflows:
+  build_laravel:
+    jobs: 
+      - build-prod:
+          filters:
+            branches:
+              only:
+                - main
+                
