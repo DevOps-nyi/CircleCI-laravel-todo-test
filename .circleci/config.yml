@@ -10,13 +10,15 @@ jobs:
             name: run ssh on server
             command: apt-get update && apt-get install -y openssh-client
         - run:
-            name: Deploy the server
-            command: |
+            name: SSH TO THE SERVER
+            command: 
                 echo "Deploy"
                 ssh  $USERNAME@$HOST -o StrictHostKeyChecking=no
-                cd /home/ubuntu/devops 
+        - run:
+            name: DEPLOY
+            command: |
+                cd /var/www/todo/
                 ./deploy.sh
-
                  
 workflows:
   build_laravel:
