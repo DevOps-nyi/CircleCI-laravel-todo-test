@@ -7,7 +7,7 @@ jobs:
     steps:
         - checkout
         - run:
-            name: run ssh on server
+            name: run ssh on the server
             command: apt-get update && apt-get install -y openssh-client
         - run:
             name: SSH TO THE SERVER AND DEPLOY
